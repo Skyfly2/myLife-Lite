@@ -1,0 +1,42 @@
+.login-content{
+  padding: 0px 10px 10px 10px;
+}
+
+.log{
+  width: 90%;
+  border: solid lightgray 1px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  padding-left: 3px;
+  height: 30px;
+}
+
+.btn-log{
+  background-color: #147EFB;
+  color: white;
+  border: solid #147EFB 1px;
+  border-radius: 5px;
+  width: 30%;
+  height: 30px;
+  transition: background-color .5s;
+}
+
+.btn-log:hover{
+  background-color: lightgreen;
+  border: solid lightgreen 1px;
+}
+
+.content{
+  margin-top: 1.3rem;
+  margin-left: .3rem;
+}
+.btn-logout{
+  color: #147EFB;
+  background-color: white;
+  border: none;
+  transition: color .5s;
+}
+
+.btn-logout:hover{
+  color: lightgray;
+}
