@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 
 function Register(props) {
@@ -7,20 +7,38 @@ function Register(props) {
     const [user, changeUser] = useState('');
     const [pass, changePass] = useState('');
     const [confirmpass, changeCPass] = useState('');
+    const [email, changeEmail] = useState('');
 
-
-    useEffect(() => {
-
-        // axios.get(`https://jsonplaceholder.typicode.com/users`).then(res => { console.log(res) });
-
-
-    });
     const register = async (e) => {
-        // e.preventDefault();
-        axios.post('http://localhost:4000/register', { user: user, password: pass, first: first, last: last, email: '' })
+        e.preventDefault();
+        axios.post('http://localhost:4000/register', { user: user, password: pass, first: first, last: last, email: email })
             .then(res => console.log(res))
             .catch(err => console.log(err));
-        // props.register();
+        props.register();
+    }
+
+    const editFirst = e => {
+        changeFirst(e.target.value);
+    }
+
+    const editLast = e => {
+        changeLast(e.target.value);
+    }
+
+    const editUser = e => {
+        changeUser(e.target.value);
+    }
+
+    const editPass = e => {
+        changePass(e.target.value);
+    }
+
+    const editCPass = e => {
+        changeCPass(e.target.value);
+    }
+
+    const editEmail = e => {
+        changeEmail(e.target.value);
     }
 
     return (
@@ -28,11 +46,12 @@ function Register(props) {
             <center>
                 <h3 className="page-header">Register a myLife V2 account</h3>
                 <form id="register">
-                    <input className="log" id="first" type="text" placeholder="Firstname" value='hello'></input>
-                    <input className="log" id="last" type="text" placeholder="Lastname" value='hello'></input>
-                    <input className="log" id="user" type="text" placeholder="Username" value='hello'></input>
-                    <input className="log" id="pass" type="password" placeholder="Password" value='hello'></input>
-                    <input className="log" type="password" placeholder="Confirm Password" value='hello'></input>
+                    <input className="log" type="text" onChange={editFirst} placeholder="Firstname" value={first}></input>
+                    <input className="log" type="text" onChange={editLast} placeholder="Lastname" value={last}></input>
+                    <input className="log" type="text" onChange={editEmail} placeholder="Email" value={email}></input>
+                    <input className="log" type="text" onChange={editUser} placeholder="Username" value={user}></input>
+                    <input className="log" type="password" onChange={editPass} placeholder="Password" value={pass}></input>
+                    <input className="log" type="password" onChange={editCPass} placeholder="Confirm Password" value={confirmpass}></input>
                     <button className="btn-log" onClick={register}>Register</button>
                     <br />
                     <button className="btn-logout" onClick={props.login}>Already have an account? Login here.</button>

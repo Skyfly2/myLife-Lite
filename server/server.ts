@@ -11,16 +11,14 @@ app.use(function (req, res, next) {
     next();
 });
 
-
-// let reg = require('./routes/register.ts');
-// reg('Joey', 'pass', 'Joey', 'Jimm', 'joey@gmail.com');
-
-
-
 app.post('/register', (req, res) => {
     const data = req.body;
-    console.log(data);
-
+    let reg = require('./routes/register.ts');
+    reg(data.user, data.password, data.first, data.last, data.email, function (err, resp) {
+        if (err) console.log(err);
+        res = resp;
+        console.log(res);
+    });
 });
 
 app.get('/test', (req, res) => {
@@ -31,5 +29,5 @@ app.get('/test', (req, res) => {
 app.listen(4000, console.log('listening on 4000'));
 
 
-let check = require('./routes/checkregistration.ts');
-check('dsfsdfgds');
+// let check = require('./routes/checkregistration.ts');
+// check('dsfsdfgds');

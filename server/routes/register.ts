@@ -1,13 +1,12 @@
 let passwordhash = require('password-hash');
 let con = require('./connection.ts');
 
-module.exports = async function register(user, pass, first, last, email) {
+module.exports = async function register(user, pass, first, last, email, cb) {
 
     let query = 'INSERT INTO users (user, password, first, last, email) VALUES (?,?,?,?,?)';
     let hashedPass = passwordhash.generate(pass);
-    console.log(hashedPass);
-    let result = await con.query(query, [user, hashedPass, first, last, email], function (err, res) {
-        if (err) throw err;
-    });
-    console.log(result);
+    con.query(query, [user, hashedPass, first, last, email], function (err, res) {
+        if (err) cb(err, 0);
+        cb(0, res);
+    })
 }
