@@ -1,3 +1,4 @@
+// App config
 const express = require('express');
 const app = express();
 const cors = require('cors');
@@ -11,14 +12,14 @@ app.use(function (req, res, next) {
     next();
 });
 
+// Register User
 app.post('/register', (req, res) => {
     const data = req.body;
     let reg = require('./routes/register.ts');
     let check = require('./routes/checkregistration.ts');
     check(data.user, resp => {
-        console.log(resp);
         if (resp) {
-            reg(data.user, data.password, data.first, data.last, data.email, function (err, resp) {
+            reg(data.user, data.password, data.first, data.last, data.email, (err, resp) => {
                 if (err) return console.log(err);
                 res.json({ status: 'success' });
             });
@@ -30,16 +31,18 @@ app.post('/register', (req, res) => {
 
 });
 
-app.get('/login', (req, res) => {
+// Validate Login
+app.post('/login', (req, res) => {
     const data = req.body;
-    console.log(data);
     let log = require('./routes/login.ts');
-    res.json({ status: log(data.user, data.password) });
-})
-
-app.get('/test', (req, res) => {
-    console.log('hello');
-    res.json({ hello: 'Hello world' });
+    log(data.user, data.password, resp => {
+        if (resp) {
+            res.json({ status: 'success' });
+        }
+        else {
+            res.json({ status: 'failed' });
+        }
+    })
 })
 
 app.listen(4000, console.log('listening on 4000'));

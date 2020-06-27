@@ -8,7 +8,7 @@ let connection = mysql.createConnection({
     database: 'mylife-lite'
 });
 
-connection.connect(function (err) {
+connection.connect(err => {
     if (err) throw err;
     console.log('Successfully Connected');
 });
