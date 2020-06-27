@@ -11,10 +11,13 @@ function Register(props) {
 
     const register = async (e) => {
         e.preventDefault();
-        axios.post('http://localhost:4000/register', { user: user, password: pass, first: first, last: last, email: email })
-            .then(res => console.log(res))
-            .catch(err => console.log(err));
-        props.register();
+        let res = await axios.post('http://localhost:4000/register', { user: user, password: pass, first: first, last: last, email: email });
+        if (res.data.status == 'success') {
+            props.register();
+        }
+        else {
+            return;
+        }
     }
 
     const editFirst = e => {

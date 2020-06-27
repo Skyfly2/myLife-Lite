@@ -8,5 +8,5 @@ module.exports = async function register(user, pass, first, last, email, cb) {
     con.query(query, [user, hashedPass, first, last, email], function (err, res) {
         if (err) cb(err, 0);
         cb(0, res);
-    })
+    });
 }

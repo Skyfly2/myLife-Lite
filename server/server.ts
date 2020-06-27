@@ -14,12 +14,28 @@ app.use(function (req, res, next) {
 app.post('/register', (req, res) => {
     const data = req.body;
     let reg = require('./routes/register.ts');
-    reg(data.user, data.password, data.first, data.last, data.email, function (err, resp) {
-        if (err) console.log(err);
-        res = resp;
-        console.log(res);
-    });
+    let check = require('./routes/checkregistration.ts');
+    check(data.user, resp => {
+        console.log(resp);
+        if (resp) {
+            reg(data.user, data.password, data.first, data.last, data.email, function (err, resp) {
+                if (err) return console.log(err);
+                res.json({ status: 'success' });
+            });
+        }
+        else {
+            res.json({ status: 'failed' });
+        }
+    })
+
 });
+
+app.get('/login', (req, res) => {
+    const data = req.body;
+    console.log(data);
+    let log = require('./routes/login.ts');
+    res.json({ status: log(data.user, data.password) });
+})
 
 app.get('/test', (req, res) => {
     console.log('hello');
@@ -29,5 +45,3 @@ app.get('/test', (req, res) => {
 app.listen(4000, console.log('listening on 4000'));
 
 
-// let check = require('./routes/checkregistration.ts');
-// check('dsfsdfgds');
