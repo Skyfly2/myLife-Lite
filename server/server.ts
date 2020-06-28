@@ -39,6 +39,9 @@ app.post('/login', (req, res) => {
         if (resp) {
             res.json({ status: 'success' });
         }
+        else if (resp === 0) {
+            res.json({ status: 'blank-field' });
+        }
         else {
             res.json({ status: 'failed' });
         }

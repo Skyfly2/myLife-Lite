@@ -8,16 +8,6 @@ import Dashboard from './dashboard';
 function App() {
   const [rank, changeRank] = useState('none');
   const [username, logUser] = useState('');
-  const [userval, changeUserVal] = useState('');
-  const [passval, changePassVal] = useState('');
-
-  const typeUser = e => {
-    changeUserVal(e.target.value);
-  }
-
-  const typePass = e => {
-    changePassVal(e.target.value);
-  }
 
   const logout = e => {
     e.preventDefault();
@@ -25,26 +15,13 @@ function App() {
     logUser('');
   }
 
-  const login = async e => {
-    e.preventDefault();
-    let res = await axios.post('http://localhost:4000/login', {
-      user: userval,
-      password: passval
-    });
-    switch (res.data.status) {
-      case 'success':
-        logUser(userval);
-        changeRank('logged');
-        break;
-      case 'failed-error':
-        logUser('');
-        changeRank('none');
-        break;
-      case 'failed':
-        logUser('');
-        changeRank('none');
-        break;
-    }
+  const setUser = val => {
+    logUser(val);
+  }
+
+  const setLogged = () => {
+    changeRank('logged');
+    return;
   }
 
   const register = () => {
@@ -58,7 +35,7 @@ function App() {
       changeRank('register');
     }
     return (
-      <Login register={register} login={login} typeUser={typeUser} typePass={typePass} userval={userval} passval={passval} />
+      <Login register={register} logUser={setUser} setLogged={setLogged} />
     );
   }
   else if (rank === 'register') {
