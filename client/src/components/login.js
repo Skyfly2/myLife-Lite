@@ -35,9 +35,9 @@ function Login(props) {
     }
 
     return (
-        <div className="login-content">
-            <center>
-                <h3 className="page-header">Login to myLife V2</h3>
+        <center>
+            <h3 className="page-header">Login to myLife V2</h3>
+            <div className="login-content">
                 <form>
                     <input className="log" type="text" onChange={typeUser} value={userval} placeholder="Username"></input>
                     <input className="log" type="password" onChange={typePass} value={passval} placeholder="Password"></input>
@@ -45,8 +45,8 @@ function Login(props) {
                     <br />
                     <button className="btn-logout" onClick={props.register}>Don't have an account? Register here.</button>
                 </form>
-            </center>
-        </div>
+            </div>
+        </center>
     );
 }
 

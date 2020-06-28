@@ -3,7 +3,7 @@ import axios from 'axios';
 import './App.css';
 import Login from './components/login';
 import Register from './components/register';
-import Dashboard from './components/dashboard';
+import Itemlist from './components/itemlist';
 
 function App() {
   const [rank, changeRank] = useState('none');
@@ -51,7 +51,7 @@ function App() {
     return (
       <div className="content">
         <button className="btn-logout" onClick={logout}>{'<Logout'}</button>
-        <Dashboard />
+        <Itemlist />
       </div>
     );
   }

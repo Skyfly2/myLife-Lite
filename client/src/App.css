@@ -1,5 +1,6 @@
 .login-content{
   padding: 0px 10px 10px 10px;
+  animation: fade .5s;
 }
 
 .log{
@@ -28,15 +29,39 @@
 
 .content{
   margin-top: 1.3rem;
-  margin-left: .3rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
 }
 .btn-logout{
   color: #147EFB;
   background-color: white;
   border: none;
-  transition: color .5s;
+  transition: color .2s;
+  padding-left: 0px;
 }
 
 .btn-logout:hover{
   color: lightgray;
+}
+
+.item{
+  margin-top: 10px;
+  padding: 5px 5px 5px 5px;
+  height: 50px;
+  box-shadow: lightgray 3px 3px 8px;
+  border: 1px solid lightgray;
+  border-radius: 10px;
+}
+
+.ItemList-box{
+  max-height: 60%;
+  padding: 10px 10px 10px 10px;
+  overflow-y: auto;
+}
+
+@keyframes fade{
+  from {opacity: 10%;}
+  to {opacity: 100%;}
+  from {margin-top: -3%;}
+  to {margin-top: 0%;}
 }

@@ -45,9 +45,9 @@ function Register(props) {
     }
 
     return (
-        <div className="login-content">
-            <center>
-                <h3 className="page-header">Register a myLife V2 account</h3>
+        <center>
+            <h3 className="page-header">Register a myLife V2 account</h3>
+            <div className="login-content">
                 <form id="register">
                     <input className="log" type="text" onChange={editFirst} placeholder="Firstname" value={first}></input>
                     <input className="log" type="text" onChange={editLast} placeholder="Lastname" value={last}></input>
@@ -59,8 +59,8 @@ function Register(props) {
                     <br />
                     <button className="btn-logout" onClick={props.login}>Already have an account? Login here.</button>
                 </form>
-            </center>
-        </div>
+            </div>
+        </center>
     );
 }
 
