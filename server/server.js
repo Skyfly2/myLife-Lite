@@ -15,8 +15,8 @@ app.use(function (req, res, next) {
 // Register User
 app.post('/register', (req, res) => {
     const data = req.body;
-    let reg = require('./routes/register.ts');
-    let check = require('./routes/checkregistration.ts');
+    let reg = require('./scripts/register.ts');
+    let check = require('./scripts/checkregistration.ts');
     check(data.user, resp => {
         if (resp) {
             reg(data.user, data.password, data.first, data.last, data.email, (err, resp) => {
@@ -34,7 +34,7 @@ app.post('/register', (req, res) => {
 // Validate Login
 app.post('/login', (req, res) => {
     const data = req.body;
-    let log = require('./routes/login.ts');
+    let log = require('./scripts/login.ts');
     log(data.user, data.password, resp => {
         if (resp) {
             res.json({ status: 'success' });

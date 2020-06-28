@@ -5,11 +5,22 @@
 
 .log{
   width: 90%;
-  border: solid lightgray 1px;
   margin-bottom: 10px;
   border-radius: 5px;
   padding-left: 3px;
   height: 30px;
+}
+
+.standard{
+  border: solid lightgray 1px;
+}
+
+.error{
+  border: solid red 1px;
+}
+
+.msg-err{
+  color: red;
 }
 
 .btn-log{
@@ -23,8 +34,8 @@
 }
 
 .btn-log:hover{
-  background-color: lightgreen;
-  border: solid lightgreen 1px;
+  background-color: lightgray;
+  border: solid lightgray 1px;
 }
 
 .content{

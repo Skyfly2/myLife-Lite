@@ -24,11 +24,6 @@ function App() {
     return;
   }
 
-  const register = () => {
-    changeRank('none');
-    return;
-  }
-
   if (rank === 'none') {
     const register = e => {
       e.preventDefault();
@@ -39,12 +34,8 @@ function App() {
     );
   }
   else if (rank === 'register') {
-    const login = e => {
-      e.preventDefault();
-      changeRank('none');
-    }
     return (
-      <Register register={register} login={login} />
+      <Register logUser={setUser} setLogged={setLogged} />
     );
   }
   else if (rank === 'logged') {
