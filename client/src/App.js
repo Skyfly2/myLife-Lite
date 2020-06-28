@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import './App.css';
-import Login from './login';
-import Register from './register';
-import Dashboard from './dashboard';
+import Login from './components/login';
+import Register from './components/register';
+import Dashboard from './components/dashboard';
 
 function App() {
   const [rank, changeRank] = useState('none');
