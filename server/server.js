@@ -46,7 +46,21 @@ app.post('/login', (req, res) => {
             res.json({ status: 'failed' });
         }
     })
-})
+});
+
+// Create Task
+app.post('/create', (req, res) => {
+    const data = req.body;
+    let create = require('./scripts/createtask.ts');
+    create(data.name, data.date, data.desc, data.user, (err, resp) => {
+        if (err) {
+            console.log(err);
+        }
+        else if (resp) {
+            res.json({ status: 'success' });
+        }
+    });
+});
 
 app.listen(4000, console.log('listening on 4000'));
 
