@@ -49,10 +49,9 @@ function App() {
       );
     case 'create':
       return (
-        <Createtask back={e => {
-          e.preventDefault();
+        <Createtask back={() => {
           changeRank('logged');
-        }} />
+        }} user={username} />
       );
   }
 }

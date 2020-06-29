@@ -10,7 +10,7 @@ function Register(props) {
     const [email, changeEmail] = useState('');
     const [state, editState] = useState('standard');
 
-    const register = async (e) => {
+    const register = async e => {
         e.preventDefault();
         if (first === '' || last === '' || user === '' || pass === '' || confirmpass === '' || email === '') {
             editState('blank-field');
