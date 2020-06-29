@@ -8,15 +8,21 @@
   margin-bottom: 10px;
   border-radius: 5px;
   padding-left: 3px;
-  height: 30px;
 }
 
 .standard{
   border: solid lightgray 1px;
+  height: 30px;
 }
 
 .error{
   border: solid red 1px;
+  height: 30px;
+}
+
+.area{
+  height: 100px;
+  border: solid lightgray 1px
 }
 
 .msg-err{
@@ -49,10 +55,20 @@
   border: none;
   transition: color .2s;
   padding-left: 0px;
+  font-size: 1.1rem;
 }
 
 .btn-logout:hover{
   color: lightgray;
+}
+
+.feature-bar{
+  display: flex;
+  width: 100%;
+}
+.add{
+  text-align: end;
+  width: 100%;
 }
 
 .item{
@@ -62,6 +78,11 @@
   box-shadow: lightgray 3px 3px 8px;
   border: 1px solid lightgray;
   border-radius: 10px;
+}
+
+.title{
+  width: 100%;
+  text-align: center;
 }
 
 .ItemList-box{

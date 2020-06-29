@@ -77,7 +77,7 @@ app.post('/create', (req, res) => {
 app.get('/gettasks', (req, res) => {
     const user = req.query.user;
     resp = {};
-    resp.names = []; resp.desc = []; resp.dates = [];
+    resp.names = []; resp.desc = []; resp.dates = []; resp.ids = []
     let gettasks = require('./scripts/gettasks.ts');
 
     // Retrieve tasks belonging to the user
@@ -89,6 +89,7 @@ app.get('/gettasks', (req, res) => {
                 resp.names.push(response[c].name);
                 resp.desc.push(response[c].description);
                 resp.dates.push(response[c].date);
+                resp.ids.push(response[c].id);
             }
         }
         catch (e) {
