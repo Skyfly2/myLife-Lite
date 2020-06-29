@@ -65,7 +65,7 @@
 }
 
 .ItemList-box{
-  max-height: 60%;
+  height: 350px;
   padding: 10px 10px 10px 10px;
   overflow-y: auto;
 }

@@ -96,7 +96,7 @@ app.get('/gettasks', (req, res) => {
             console.log(e.message);
         }
         finally {
-            res = json(resp);
+            res.json(resp);
         }
     })
 });

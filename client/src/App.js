@@ -42,7 +42,7 @@ function App() {
     return (
       <div className="content">
         <button className="btn-logout" onClick={logout}>{'<Logout'}</button>
-        <Itemlist />
+        <Itemlist user={username} />
       </div>
     );
   }
