@@ -14,44 +14,57 @@ function App() {
   switch (rank) {
     case 'none':
       return (
-        <Login register={e => {
-          e.preventDefault();
-          changeRank('register');
-        }} logUser={val => {
-          logUser(val);
-        }} setLogged={() => {
-          changeRank('logged');
-          return;
-        }} />
+        <Login
+          register={e => {
+            e.preventDefault();
+            changeRank('register');
+          }}
+          logUser={val => {
+            logUser(val);
+          }}
+          setLogged={() => {
+            changeRank('logged');
+            return;
+          }} />
       );
     case 'register':
       return (
-        <Register logUser={val => {
-          logUser(val);
-        }} setLogged={() => {
-          changeRank('logged');
-          return;
-        }} />
+        <Register
+          logUser={val => {
+            logUser(val);
+          }}
+          setLogged={e => {
+            e.preventDefault();
+            changeRank('logged');
+            return;
+          }}
+          login={e => {
+            e.preventDefault();
+            changeRank('none');
+          }} />
       );
     case 'logged':
       return (
         <div className="content">
-          <Featurebar logout={e => {
-            e.preventDefault();
-            changeRank('none');
-            logUser('');
-          }} create={e => {
-            e.preventDefault();
-            changeRank('create');
-          }} />
+          <Featurebar
+            logout={e => {
+              e.preventDefault();
+              changeRank('none');
+              logUser('');
+            }}
+            create={e => {
+              e.preventDefault();
+              changeRank('create');
+            }} />
           <Itemlist user={username} />
         </div>
       );
     case 'create':
       return (
-        <Createtask back={() => {
-          changeRank('logged');
-        }} user={username} />
+        <Createtask
+          back={() => {
+            changeRank('logged');
+          }} user={username} />
       );
   }
 }

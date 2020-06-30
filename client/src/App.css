@@ -20,6 +20,21 @@
   height: 30px;
 }
 
+.item-half{
+  display: flex;
+  height: 50%;
+}
+
+.item-title{
+  width: 85%;
+}
+
+.item-button{
+  width: 15%;
+  text-align: center;
+  padding-right: 30px;
+}
+
 .area{
   height: 100px;
   border: solid lightgray 1px

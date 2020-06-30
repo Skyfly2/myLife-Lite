@@ -102,6 +102,18 @@ app.get('/gettasks', (req, res) => {
     })
 });
 
+// Complete Tasks
+app.delete('/complete', (req, res) => {
+    const data = req.query.id;
+    let com = require('./scripts/complete.ts');
+    com(data, (err, resp) => {
+        if (err) return console.log(err);
+        res.json(resp);
+    });
+});
+
+
+
 app.listen(4000, console.log('listening on 4000'));
 
 

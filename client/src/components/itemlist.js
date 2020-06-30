@@ -12,12 +12,20 @@ function Itemlist(props) {
             }
         }).then(res => {
             for (let c = 0; c < res.data.names.length; c++) {
-                newItems.push(<Item name={res.data.names[c]} date='now' desc={res.data.desc[c]} id={res.data.ids[c]} />)
+                newItems.push(<Item name={res.data.names[c]} date='now' desc={res.data.desc[c]} id={res.data.ids[c]} comp={complete} />)
             }
             updateItems(newItems);
             return;
         });
     });
+
+    const complete = id => {
+        axios.delete('http://localhost:4000/complete', {
+            params: {
+                id: id
+            }
+        }).catch(err => console.log(err));
+    }
 
     return (
         <div className="ItemList-box">
