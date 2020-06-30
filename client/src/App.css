@@ -3,6 +3,10 @@
   animation: fade .5s;
 }
 
+.fade{
+  animation: fade .5s;
+}
+
 .log{
   width: 90%;
   margin-bottom: 10px;
@@ -93,6 +97,7 @@
   box-shadow: lightgray 3px 3px 8px;
   border: 1px solid lightgray;
   border-radius: 10px;
+  animation: itemfade 0.5s;
 }
 
 .title{
@@ -111,4 +116,11 @@
   to {opacity: 100%;}
   from {margin-top: -3%;}
   to {margin-top: 0%;}
+}
+
+@keyframes itemfade{
+  from {opacity: 10%;}
+  to {opacity: 100%;}
+  from {margin-top: -10px;}
+  to {margin-top: 10px;}
 }

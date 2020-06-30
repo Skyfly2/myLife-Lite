@@ -35,7 +35,7 @@ function Createtask(props) {
                         </div>
                     </div>
                     <center>
-                        <form>
+                        <form className="fade">
                             <input className="log standard" type="text" placeholder="Task name" value={taskName} onChange={e => {
                                 changeName(e.target.value);
                             }}></input>
