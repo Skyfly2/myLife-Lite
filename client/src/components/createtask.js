@@ -43,7 +43,7 @@ function Createtask(props) {
                             <textarea className="log area" placeholder="Description" value={desc} onChange={e => {
                                 changeDesc(e.target.value);
                             }}></textarea>
-                            <Calendar onChange={val => {
+                            <Calendar className="calendar" onChange={val => {
                                 changeDate(val);
                             }} value={date} />
                         </form>
@@ -69,7 +69,7 @@ function Createtask(props) {
                             <textarea className="log area" placeholder="Description" value={desc} onChange={e => {
                                 changeDesc(e.target.value);
                             }}></textarea>
-                            <Calendar onChange={val => {
+                            <Calendar className="calendar" onChange={val => {
                                 changeDate(val);
                             }} value={date} />
                         </form>

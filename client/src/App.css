@@ -108,7 +108,13 @@
 .ItemList-box{
   height: 350px;
   padding: 10px 10px 10px 10px;
+  margin-bottom: 40px;
   overflow-y: auto;
+}
+
+.calendar{
+  margin-bottom: 20px;
+  box-shadow: lightgray 6px 6px 8px;
 }
 
 @keyframes fade{

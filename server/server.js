@@ -76,12 +76,15 @@ app.post('/create', (req, res) => {
 // Get Tasks
 app.get('/gettasks', (req, res) => {
     const user = req.query.user;
+    let date;
+    if (req.query.date) {
+        date = req.query.date.slice(0, 10);
+    }
     resp = {};
     resp.names = []; resp.desc = []; resp.dates = []; resp.ids = []
     let gettasks = require('./scripts/gettasks.ts');
-
     // Retrieve tasks belonging to the user
-    gettasks(user, (err, response) => {
+    gettasks(user, date, (err, response) => {
         if (err) return console.log(err);
         try {
             for (let c = 0; c < response.length; c++) {
