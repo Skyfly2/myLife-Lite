@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
+import Calendar from 'react-calendar';
 import axios from 'axios';
 
 function Createtask(props) {
     const [taskName, changeName] = useState('');
     const [desc, changeDesc] = useState('');
-    const [date, changeDate] = useState(Date.now());
+    const [date, changeDate] = useState(null);
     const [state, changeState] = useState('standard');
 
     const create = async e => {
@@ -42,6 +43,9 @@ function Createtask(props) {
                             <textarea className="log area" placeholder="Description" value={desc} onChange={e => {
                                 changeDesc(e.target.value);
                             }}></textarea>
+                            <Calendar onChange={val => {
+                                changeDate(val);
+                            }} value={date} />
                         </form>
                         <button className="btn-log" onClick={create} >Create</button>
                     </center>
@@ -65,6 +69,9 @@ function Createtask(props) {
                             <textarea className="log area" placeholder="Description" value={desc} onChange={e => {
                                 changeDesc(e.target.value);
                             }}></textarea>
+                            <Calendar onChange={val => {
+                                changeDate(val);
+                            }} value={date} />
                         </form>
                         <button className="btn-log" onClick={create} >Create</button>
                     </center>
