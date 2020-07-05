@@ -31,12 +31,13 @@ function Itemlist(props) {
     if (props.date) {
         return (
             <div>
+                <center>
+                    <button onClick={props.viewAll} className="btn-logout toggle">View all dates</button>
+                </center>
                 <div className="ItemList-box">
                     {items}
                 </div>
-                <center>
-                    <button onClick={props.viewAll} className="btn-logout">View all dates</button>
-                </center>
+
             </div>
         );
     }

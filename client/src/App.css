@@ -74,7 +74,7 @@
   border: none;
   transition: color .2s;
   padding-left: 0px;
-  font-size: 1.1rem;
+  font-size: 15px;
 }
 
 .btn-logout:hover{
@@ -110,6 +110,10 @@
   padding: 10px 10px 10px 10px;
   margin-bottom: 40px;
   overflow-y: auto;
+}
+
+.toggle{
+  margin-top: -15px;
 }
 
 .calendar{

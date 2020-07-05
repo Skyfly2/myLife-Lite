@@ -64,7 +64,7 @@ function App() {
             changeDate(null);
           }} />
           <center>
-            <Calendar className="calendar" onChange={val => {
+            <Calendar className="calendar fade" onChange={val => {
               changeDate(val);
             }} value={date} />
           </center>

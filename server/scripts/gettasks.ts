@@ -11,7 +11,7 @@ module.exports = function (user, date, res) {
     }
     else {
         // Query Database generally
-        let query = 'SELECT name,date,description,id FROM tasks WHERE user=?';
+        let query = 'SELECT name,date,description,id FROM tasks WHERE user=? ORDER BY date';
         con.query(query, [user], (err, resp) => {
             if (err) return res(err, null);
             return res(null, resp);
