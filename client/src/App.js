@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import Item from './components/item';
 import './App.css';
 import 'react-calendar/dist/Calendar.css'
 import Login from './components/login';
@@ -8,11 +9,47 @@ import Itemlist from './components/itemlist';
 import Featurebar from './components/featurebar';
 import Createtask from './components/createtask';
 import Calendar from 'react-calendar';
+import Edittask from './components/edittask';
 
 function App() {
   const [rank, changeRank] = useState('none');
   const [username, logUser] = useState('');
   const [date, changeDate] = useState(null);
+  const [items, updateItems] = useState([]);
+  const [editOption, changeEdit] = useState(null);
+
+  let newItems = [];
+  useEffect(() => {
+    axios.get('http://localhost:4000/gettasks', {
+      params: {
+        user: username,
+        date: date
+      }
+    }).then(res => {
+      for (let c = 0; c < res.data.names.length; c++) {
+        newItems.push(<Item name={res.data.names[c]} date='now' desc={res.data.desc[c]} id={res.data.ids[c]} comp={complete} edit={() => {
+          changeRank('edit-task');
+          changeEdit({
+            num: c,
+            name: res.data.names[c],
+            date: 'now',
+            desc: res.data.desc[c],
+            id: res.data.ids[c]
+          });
+        }} />)
+      }
+      updateItems(newItems);
+      return;
+    });
+  });
+
+  const complete = id => {
+    axios.delete('http://localhost:4000/complete', {
+      params: {
+        id: id
+      }
+    }).catch(err => console.log(err));
+  }
 
   switch (rank) {
     case 'none':
@@ -60,7 +97,7 @@ function App() {
               e.preventDefault();
               changeRank('create');
             }} />
-          <Itemlist user={username} date={date} viewAll={e => {
+          <Itemlist user={username} date={date} items={items} viewAll={e => {
             changeDate(null);
           }} />
           <center>
@@ -77,6 +114,13 @@ function App() {
           back={() => {
             changeRank('logged');
           }} user={username} />
+      );
+    case 'edit-task':
+      console.log(editOption.name)
+      return (
+        <div>
+          <Edittask taskName='hola' />
+        </div>
       );
   }
 }

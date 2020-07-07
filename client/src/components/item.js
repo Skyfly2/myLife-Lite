@@ -1,4 +1,5 @@
 import React from 'react';
+import Edittask from './edittask';
 
 function Item(props) {
     return (
@@ -8,7 +9,7 @@ function Item(props) {
                     {props.name}
                 </div>
                 <div className="item-button">
-                    <button className="btn-logout">Edit</button>
+                    <button className="btn-logout" onClick={() => props.edit()}>Edit</button>
                 </div>
             </div>
             <div className="item-half">
