@@ -29,7 +29,7 @@ function App() {
       }
     }).then(res => {
       for (let c = 0; c < res.data.names.length; c++) {
-        newItems.push(<Item name={res.data.names[c]} date={res.data.dates[c]} desc={res.data.desc[c]} key={res.data.ids[c]} comp={complete} edit={() => {
+        newItems.push(<Item name={res.data.names[c]} date={res.data.dates[c]} desc={res.data.desc[c]} id={res.data.ids[c]} key={c} comp={complete} edit={() => {
           changeRank('edit-task');
           changeEdit({
             num: c,

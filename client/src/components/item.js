@@ -14,7 +14,7 @@ function Item(props) {
                 </div>
 
                 <div className="item-button">
-                    <button className="btn-logout" onClick={() => { props.comp(props.key) }}>Complete</button>
+                    <button className="btn-logout" onClick={() => { props.comp(props.id) }}>Complete</button>
                 </div>
             </div>
         </div>
