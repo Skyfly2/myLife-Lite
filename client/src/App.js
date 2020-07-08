@@ -27,12 +27,12 @@ function App() {
       }
     }).then(res => {
       for (let c = 0; c < res.data.names.length; c++) {
-        newItems.push(<Item name={res.data.names[c]} date='now' desc={res.data.desc[c]} id={res.data.ids[c]} comp={complete} edit={() => {
+        newItems.push(<Item name={res.data.names[c]} date={res.data.dates[c]} desc={res.data.desc[c]} key={res.data.ids[c]} comp={complete} edit={() => {
           changeRank('edit-task');
           changeEdit({
             num: c,
             name: res.data.names[c],
-            date: 'now',
+            date: res.data.dates[c],
             desc: res.data.desc[c],
             id: res.data.ids[c]
           });
@@ -116,10 +116,11 @@ function App() {
           }} user={username} />
       );
     case 'edit-task':
-      console.log(editOption.name)
       return (
         <div>
-          <Edittask taskName='hola' />
+          <Edittask taskDesc={editOption.desc} taskName={editOption.name} date={editOption.date} id={editOption.id} back={() => {
+            changeRank('logged');
+          }} />
         </div>
       );
   }

@@ -121,6 +121,12 @@
   box-shadow: lightgray 6px 6px 8px;
 }
 
+textarea{
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+}
+
 @keyframes fade{
   from {opacity: 10%;}
   to {opacity: 100%;}

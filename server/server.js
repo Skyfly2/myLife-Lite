@@ -115,6 +115,19 @@ app.delete('/complete', (req, res) => {
     });
 });
 
+// Update Tasks
+app.put('/update', (req, res) => {
+    const data = req.body;
+    let edit = require('./scripts/edittask.ts');
+    edit(data, (err, resp) => {
+        if (err) {
+            res.json({ status: 'failed' });
+            return console.log(err);
+        }
+        res.json({ status: 'success' });
+    })
+})
+
 
 
 app.listen(4000, console.log('listening on 4000'));

@@ -3,17 +3,18 @@ import Calendar from 'react-calendar';
 import axios from 'axios';
 
 function Edittask(props) {
-    const [taskName, changeName] = useState(props.taskName);
+    const [name, changeName] = useState(props.taskName);
     const [desc, changeDesc] = useState(props.taskDesc);
-    const [date, changeDate] = useState(props.date);
+    const [date, changeDate] = useState(null);
+    const [newDate, changenewDate] = useState(null);
     const [state, changeState] = useState('standard');
 
     const edit = async e => {
-        let res = await axios.post('http://localhost:4000/create', {
-            name: taskName,
+        let res = await axios.put('http://localhost:4000/update', {
+            name: name,
             date: date,
             desc: desc,
-            user: props.user
+            id: props.id
         });
         if (res.data) {
             if (res.data.status === 'success') {
@@ -32,22 +33,23 @@ function Edittask(props) {
                     <div className="feature-bar">
                         <button className="btn-logout" onClick={props.back}>{'<'}</button>
                         <div className="title">
-                            <p>Create Task</p>
+                            <p>Edit Task</p>
                         </div>
                     </div>
                     <center>
                         <form className="fade">
-                            <input className="log standard" type="text" value={taskName} onChange={e => {
+                            <textarea className="log standard" value={name} onChange={e => {
                                 changeName(e.target.value);
-                            }}>{taskName}</input>
+                            }}>{name}</textarea>
                             <textarea className="log area" value={desc} onChange={e => {
                                 changeDesc(e.target.value);
                             }}>{desc}</textarea>
+                            {/* <h1>{date}</h1> */}
                             <Calendar className="calendar" onChange={val => {
                                 changeDate(val);
                             }} value={date} />
                         </form>
-                        <button className="btn-log"  >Create</button>
+                        <button className="btn-log" onClick={edit} >Update</button>
                     </center>
                 </div>
             );
@@ -57,23 +59,24 @@ function Edittask(props) {
                     <div className="feature-bar">
                         <button className="btn-logout" onClick={props.back}>{'<'}</button>
                         <div className="title">
-                            <p>Create Task</p>
+                            <p>Edit Task</p>
                         </div>
                     </div>
                     <center>
-                        <p className="msg-err">Task creation failed. Try again later</p>
+                        <p className="msg-err">Task edit failed. Try again later</p>
                         <form>
-                            <input className="log standard" type="text" value={taskName} onChange={e => {
+                            <input className="log standard" type="text" value={name} onChange={e => {
                                 changeName(e.target.value);
-                            }}></input>
+                            }}>{name}</input>
                             <textarea className="log area" value={desc} onChange={e => {
                                 changeDesc(e.target.value);
                             }}></textarea>
                             <Calendar className="calendar" onChange={val => {
                                 changeDate(val);
-                            }} value={date} />
+                                changenewDate(val);
+                            }} value={newDate} />
                         </form>
-                        <button className="btn-log" >Create</button>
+                        <button className="btn-log" onClick={edit} >Create</button>
                     </center>
                 </div>
             );
