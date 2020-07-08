@@ -24,13 +24,15 @@
   height: 30px;
 }
 
-.item-half{
-  display: flex;
-  height: 50%;
+.item-content{
+  height: 100%;
+  width: 30%;
+  text-align: center;
 }
 
 .item-title{
-  width: 85%;
+  height: 100%;
+  width: 70%;
 }
 
 .item-button{
@@ -98,6 +100,7 @@
   border: 1px solid lightgray;
   border-radius: 10px;
   animation: itemfade 0.5s;
+  display: flex;
 }
 
 .title{

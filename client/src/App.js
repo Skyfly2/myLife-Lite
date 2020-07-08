@@ -10,6 +10,7 @@ import Featurebar from './components/featurebar';
 import Createtask from './components/createtask';
 import Calendar from 'react-calendar';
 import Edittask from './components/edittask';
+import Viewtask from './components/viewtask';
 
 function App() {
   const [rank, changeRank] = useState('none');
@@ -17,6 +18,7 @@ function App() {
   const [date, changeDate] = useState(null);
   const [items, updateItems] = useState([]);
   const [editOption, changeEdit] = useState(null);
+  const [viewOption, changeView] = useState(null);
 
   let newItems = [];
   useEffect(() => {
@@ -35,6 +37,14 @@ function App() {
             date: res.data.dates[c],
             desc: res.data.desc[c],
             id: res.data.ids[c]
+          });
+        }} view={() => {
+          changeRank('view-task');
+          changeView({
+            num: c,
+            name: res.data.names[c],
+            date: res.data.dates[c],
+            desc: res.data.desc[c],
           });
         }} />)
       }
@@ -123,6 +133,14 @@ function App() {
           }} />
         </div>
       );
+    case 'view-task':
+      return (
+        <div>
+          <Viewtask taskDesc={viewOption.desc} name={viewOption.name} date={viewOption.date} back={() => {
+            changeRank('logged');
+          }} />
+        </div>
+      )
   }
 }
 
