@@ -90,11 +90,17 @@ function Register(props) {
                         <p className="msg-err">Username is taken</p>
                         <form id="register">
                             <input className="log standard" type="text" onChange={editFirst} placeholder="Firstname" value={first}></input>
+                            <br />
                             <input className="log standard" type="text" onChange={editLast} placeholder="Lastname" value={last}></input>
+                            <br />
                             <input className="log standard" type="text" onChange={editEmail} placeholder="Email" value={email}></input>
+                            <br />
                             <input className="log error" type="text" onChange={editUser} placeholder="Username" value={user}></input>
+                            <br />
                             <input className="log standard" type="password" onChange={editPass} placeholder="Password" value={pass}></input>
+                            <br />
                             <input className="log standard" type="password" onChange={editCPass} placeholder="Confirm Password" value={confirmpass}></input>
+                            <br />
                             <button className="btn-log" onClick={register}>Register</button>
                             <br />
                             <button className="btn-logout" onClick={props.login}>Already have an account? Login here.</button>
@@ -110,11 +116,17 @@ function Register(props) {
                         <p className="msg-err">Please fill out all of the highlighted fields</p>
                         <form id="register">
                             <input className="log error" type="text" onChange={editFirst} placeholder="Firstname" value={first}></input>
+                            <br />
                             <input className="log error" type="text" onChange={editLast} placeholder="Lastname" value={last}></input>
+                            <br />
                             <input className="log error" type="text" onChange={editEmail} placeholder="Email" value={email}></input>
+                            <br />
                             <input className="log error" type="text" onChange={editUser} placeholder="Username" value={user}></input>
+                            <br />
                             <input className="log error" type="password" onChange={editPass} placeholder="Password" value={pass}></input>
+                            <br />
                             <input className="log error" type="password" onChange={editCPass} placeholder="Confirm Password" value={confirmpass}></input>
+                            <br />
                             <button className="btn-log" onClick={register}>Register</button>
                             <br />
                             <button className="btn-logout" onClick={props.login}>Already have an account? Login here.</button>
@@ -130,11 +142,17 @@ function Register(props) {
                         <p className="msg-err">Passwords do not match</p>
                         <form id="register">
                             <input className="log standard" type="text" onChange={editFirst} placeholder="Firstname" value={first}></input>
+                            <br />
                             <input className="log standard" type="text" onChange={editLast} placeholder="Lastname" value={last}></input>
+                            <br />
                             <input className="log standard" type="text" onChange={editEmail} placeholder="Email" value={email}></input>
+                            <br />
                             <input className="log standard" type="text" onChange={editUser} placeholder="Username" value={user}></input>
+                            <br />
                             <input className="log error" type="password" onChange={editPass} placeholder="Password" value={pass}></input>
+                            <br />
                             <input className="log error" type="password" onChange={editCPass} placeholder="Confirm Password" value={confirmpass}></input>
+                            <br />
                             <button className="btn-log" onClick={register}>Register</button>
                             <br />
                             <button className="btn-logout" onClick={props.login}>Already have an account? Login here.</button>
