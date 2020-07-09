@@ -12,6 +12,7 @@ function Viewtask(props) {
             <center>
                 <form className="fade">
                     <textarea className="log standard" readOnly value={props.date}>{props.date}</textarea>
+                    <br />
                     <textarea className="log area" readOnly value={props.taskDesc}>{props.taskDesc}</textarea>
                 </form>
             </center>

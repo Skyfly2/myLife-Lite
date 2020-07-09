@@ -40,9 +40,11 @@ function Createtask(props) {
                             <input className="log standard" type="text" placeholder="Task name" value={taskName} onChange={e => {
                                 changeName(e.target.value);
                             }}></input>
+                            <br />
                             <textarea className="log area" placeholder="Description" value={desc} onChange={e => {
                                 changeDesc(e.target.value);
                             }}></textarea>
+                            <br />
                             <Calendar className="calendar" onChange={val => {
                                 changeDate(val);
                             }} value={date} />
@@ -66,9 +68,11 @@ function Createtask(props) {
                             <input className="log standard" type="text" placeholder="Task name" value={taskName} onChange={e => {
                                 changeName(e.target.value);
                             }}></input>
+                            <br />
                             <textarea className="log area" placeholder="Description" value={desc} onChange={e => {
                                 changeDesc(e.target.value);
                             }}></textarea>
+                            <br />
                             <Calendar className="calendar" onChange={val => {
                                 changeDate(val);
                             }} value={date} />

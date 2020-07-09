@@ -42,11 +42,13 @@ function Login(props) {
         case 'standard':
             return (
                 <center>
-                    <h3 className="page-header">Login to myLife V2</h3>
+                    <h3 className="page-header">myLife - Productivity Simplified</h3>
                     <div className="login-content">
                         <form>
                             <input className="log standard" type="text" onChange={typeUser} value={userval} placeholder="Username"></input>
+                            <br />
                             <input className="log standard" type="password" onChange={typePass} value={passval} placeholder="Password"></input>
+                            <br />
                             <button className="btn-log" type="submit" onClick={login}>Login</button>
                             <br />
                             <button className="btn-logout" onClick={props.register}>Don't have an account? Register here.</button>
@@ -57,12 +59,14 @@ function Login(props) {
         case 'blank-field':
             return (
                 <center>
-                    <h3 className="page-header">Login to myLife V2</h3>
+                    <h3 className="page-header">myLife - Productivity Simplified</h3>
                     <div className="login-content">
                         <form>
                             <p className="msg-err">Please fill out all highlighted fields to continue</p>
                             <input className="log error" type="text" onChange={typeUser} value={userval} placeholder="Username"></input>
+                            <br />
                             <input className="log error" type="password" onChange={typePass} value={passval} placeholder="Password"></input>
+                            <br />
                             <button className="btn-log" type="submit" onClick={login}>Login</button>
                             <br />
                             <button className="btn-logout" onClick={props.register}>Don't have an account? Register here.</button>
@@ -73,12 +77,14 @@ function Login(props) {
         case 'wrong':
             return (
                 <center>
-                    <h3 className="page-header">Login to myLife V2</h3>
+                    <h3 className="page-header">myLife - Productivity Simplified</h3>
                     <div className="login-content">
                         <form>
                             <p className="msg-err">Invalid login credentials</p>
                             <input className="log standard" type="text" onChange={typeUser} value={userval} placeholder="Username"></input>
+                            <br />
                             <input className="log standard" type="password" onChange={typePass} value={passval} placeholder="Password"></input>
+                            <br />
                             <button className="btn-log" type="submit" onClick={login}>Login</button>
                             <br />
                             <button className="btn-logout" onClick={props.register}>Don't have an account? Register here.</button>

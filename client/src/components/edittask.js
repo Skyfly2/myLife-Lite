@@ -41,9 +41,11 @@ function Edittask(props) {
                             <textarea className="log standard" value={name} onChange={e => {
                                 changeName(e.target.value);
                             }}>{name}</textarea>
+                            <br />
                             <textarea className="log area" value={desc} onChange={e => {
                                 changeDesc(e.target.value);
                             }}>{desc}</textarea>
+                            <br />
                             {/* <h1>{date}</h1> */}
                             <Calendar className="calendar" onChange={val => {
                                 changeDate(val);
@@ -65,12 +67,14 @@ function Edittask(props) {
                     <center>
                         <p className="msg-err">Task edit failed. Try again later</p>
                         <form>
-                            <input className="log standard" type="text" value={name} onChange={e => {
+                            <textarea className="log standard" value={name} onChange={e => {
                                 changeName(e.target.value);
-                            }}>{name}</input>
+                            }}>{name}</textarea>
+                            <br />
                             <textarea className="log area" value={desc} onChange={e => {
                                 changeDesc(e.target.value);
                             }}></textarea>
+                            <br />
                             <Calendar className="calendar" onChange={val => {
                                 changeDate(val);
                                 changenewDate(val);
